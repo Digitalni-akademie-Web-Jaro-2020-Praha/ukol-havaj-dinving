@@ -6,34 +6,41 @@ let osoba2 = {
   jmeno: 'Karolína',
   uspory: 8000
 };
-let uspory1 = osoba1.uspory;
-let uspory2 = osoba2.uspory;
-let jmeno1 = osoba1.jmeno
-let jmeno2 = osoba2.jmeno
 
-let celkem = osoba1.uspory + osoba2.uspory;
-function muzeme(celkem) {
+let osoba3 = {
+  jmeno: 'Lenka',
+  uspory: 80000
+};
+
+function muzeme(osobaX, osobaY) {
+  let usporyX = osobaX.uspory;
+  let usporyY = osobaY.uspory;
+  let jmenoX = osobaX.jmeno;
+  let jmenoY = osobaY.jmeno;
+  let celkem = osobaX.uspory + osobaY.uspory;
+
   if (celkem >= 100000) {
-    if ((uspory1 >= 50000) && (uspory2 >= 50000)) {
+    if ((usporyX >= 50000) && (usporyY >= 50000)) {
       return 'Perfektní, máte obě naspořeno dost a můžete odletět na Havaj! Aloha :).'
     }
-    if ((uspory1 < 50000) && (uspory2 >= 50000)) {
-      return `Hurá, máte naspořeno a můžete odletět na Havaj! Ale ${jmeno1} nemá dost peněz a musí pak vrátit dluh ${50000 - uspory1} Kč, které jí půjčila ${osoba2.jmeno}.`
+    if ((usporyX < 50000) && (usporyY >= 50000)) {
+      return `Hurá, máte naspořeno a můžete odletět na Havaj! Ale ${jmenoX} nemá dost peněz a musí pak vrátit dluh ${50000 - usporyX} Kč, které jí půjčila ${osobaY.jmeno}.`
     }
     else {
-      return `Bezva, máte naspořeno a můžete odletět na Havaj. Ale ${jmeno2} nemá dost peněz a musí pak vrátit dluh ${50000 - uspory2} Kč, které jí půjčila ${jmeno1}.`
+      return `Bezva, máte naspořeno a můžete odletět na Havaj. Ale ${jmenoY} nemá dost peněz a musí pak vrátit dluh ${50000 - usporyY} Kč, které jí půjčila ${jmenoX}.`
     }
   }
   if (celkem < 100000) {
-    if ((uspory1 >= 50000) && (uspory2 < 50000)) {
-      return `Super, už chybí jen málo. ${jmeno1} už má všechny potřebné penízky, ale ${jmeno2} musí ještě našetřit ${50000 - uspory2} Kč.`
+    if ((usporyX >= 50000) && (usporyY < 50000)) {
+      return `Super, už chybí jen málo. ${jmenoX} už má všechny potřebné penízky, ale ${jmenoY} musí ještě našetřit ${50000 - usporyY} Kč.`
     }
-    if ((uspory2 >= 50000) && (uspory1 < 50000)) {
-      return `Olala, už chybí jen málo. ${jmeno2} už má všechny potřebné penízky, ale ${jmeno1} musí ještě našetřit ${50000 - uspory1} Kč.`
+    if ((usporyY >= 50000) && (usporyX < 50000)) {
+      return `Olala, už chybí jen málo. ${jmenoY} už má všechny potřebné penízky, ale ${jmenoX} musí ještě našetřit ${50000 - usporyX} Kč.`
     }
     else {
-      return `Jaj, to je smůla. Ještě na Havaj nemůžete, musíte ještě chvíli programovat funkce v javascriptu a šetřit. ${jmeno1} musí jeste našetřit ${50000 - uspory1} Kč. A ${jmeno2} potřebuje jeste naspořit ${50000 - uspory2} Kč. Celkem vám tedy chybí ${100000 - (uspory1 + uspory2)} Kč. Aloha!`
+      return `Jaj, to je smůla. Ještě na Havaj nemůžete, musíte ještě chvíli programovat funkce v javascriptu a šetřit. ${jmenoX} musí jeste našetřit ${50000 - usporyX} Kč. A ${jmenoY} potřebuje jeste naspořit ${50000 - usporyY} Kč. Celkem vám tedy chybí ${100000 - (usporyX + usporyY)} Kč. Aloha!`
     }
   }
 }
-muzeme(celkem)
+
+muzeme(osoba1, osoba2)
